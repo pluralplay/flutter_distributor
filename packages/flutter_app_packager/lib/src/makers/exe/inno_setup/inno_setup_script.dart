@@ -94,7 +94,7 @@ class InnoSetupScript {
           makeConfig.executableName ?? makeConfig.defaultExecutableName,
       'DISPLAY_NAME': makeConfig.displayName,
       'PUBLISHER_NAME': makeConfig.publisherName,
-      'ARCH': makeConfig.arch ?? 'x64',
+      'ARCH': makeConfig.arch ?? (Platform.environment['PROCESSOR_ARCHITECTURE']?.toUpperCase() == 'ARM64' ? 'arm64' : 'x64'),
       'PUBLISHER_URL': makeConfig.publisherUrl,
       'CREATE_DESKTOP_ICON': makeConfig.createDesktopIcon,
       'LAUNCH_AT_STARTUP': makeConfig.launchAtStartup,
